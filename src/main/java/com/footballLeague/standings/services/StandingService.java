@@ -14,8 +14,6 @@ public class StandingService {
     @Autowired
 	private CountryRepository countryRepository;
     @Autowired
-	private LeagueRepository leagueRepository;
-    @Autowired
 	private TeamRepository teamRepository;
 	@Autowired
 	private StandingRepository standingRepository;
@@ -23,7 +21,6 @@ public class StandingService {
 	public Standing getStanding(String countryName, String leagueName, String teamName) {
 		Integer countryId = countryRepository.getCountryByName(countryName).getId();
 		System.out.println( countryId );
-		//Integer leagueId = leagueRepository.getLeagueByName(leagueName, 41).getId();
 		Integer teamId = teamRepository.getTeamByName(teamName, 148).getTeamId();
 		Standing standing = standingRepository.getStanding(148, teamId);
 		standing.setCountryId(countryId);
